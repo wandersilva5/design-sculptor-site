@@ -1,11 +1,31 @@
 
-import React, { useEffect, useRef } from 'react';
-import { ChevronDown } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
+const slides = [
+  {
+    title: "Transformando <span class='text-gradient'>Visões</span> em Projetos Reais",
+    description: "Criamos renderizações 3D fotorrealistas para arquitetos, construtoras e incorporadoras, dando vida aos seus projetos antes mesmo da construção começar.",
+    image: "/lovable-uploads/abfd0419-38f5-4637-aa3a-9039214fa0a2.png"
+  },
+  {
+    title: "Excelência em <span class='text-gradient'>Visualização</span> Arquitetônica",
+    description: "Nossa expertise combina tecnologia avançada e sensibilidade estética para criar representações precisas e impactantes dos seus projetos.",
+    image: "/lovable-uploads/abfd0419-38f5-4637-aa3a-9039214fa0a2.png"
+  },
+  {
+    title: "Projetos que <span class='text-gradient'>Impressionam</span>",
+    description: "Crie conexões emocionais com seus clientes através de imagens que comunicam a essência e o potencial de seus projetos arquitetônicos.",
+    image: "/lovable-uploads/abfd0419-38f5-4637-aa3a-9039214fa0a2.png"
+  }
+];
+
 const Hero = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
   const overlayRef = useRef<HTMLDivElement>(null);
+  const intervalRef = useRef<number | null>(null);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -26,6 +46,27 @@ const Hero = () => {
     };
   }, []);
 
+  useEffect(() => {
+    // Auto-rotate slides
+    intervalRef.current = window.setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 6000);
+
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, []);
+
+  const nextSlide = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
   const scrollToProjects = () => {
     const projectsSection = document.getElementById('projects');
     if (projectsSection) {
@@ -43,12 +84,29 @@ const Hero = () => {
         ref={overlayRef}
         className="absolute inset-0 z-0 opacity-30 transition-transform duration-200"
         style={{ 
-          backgroundImage: 'url(/lovable-uploads/abfd0419-38f5-4637-aa3a-9039214fa0a2.png)', 
+          backgroundImage: `url(${slides[currentSlide].image})`, 
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           filter: 'blur(8px)'
         }}
       ></div>
+      
+      {/* Slider Controls */}
+      <button 
+        onClick={prevSlide}
+        className="absolute left-4 z-20 bg-white/20 backdrop-blur-md text-foreground p-2 rounded-full hover:bg-white/30 transition-colors duration-300 hidden sm:block"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft size={24} />
+      </button>
+      
+      <button 
+        onClick={nextSlide}
+        className="absolute right-4 z-20 bg-white/20 backdrop-blur-md text-foreground p-2 rounded-full hover:bg-white/30 transition-colors duration-300 hidden sm:block"
+        aria-label="Next slide"
+      >
+        <ChevronRight size={24} />
+      </button>
       
       {/* Content */}
       <div className="container mx-auto px-4 z-10">
@@ -57,22 +115,37 @@ const Hero = () => {
             Design Arquitetônico 3D
           </div>
           
-          <h1 className="mb-6 font-display animate-fade-in-left" style={{ animationDelay: '200ms' }}>
-            Transformando <span className="text-gradient">Visões</span> em Projetos Reais
-          </h1>
+          <h1 
+            className="mb-6 font-display animate-fade-in-left"
+            style={{ animationDelay: '200ms' }}
+            dangerouslySetInnerHTML={{ __html: slides[currentSlide].title }}
+          />
           
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in-right text-balance" style={{ animationDelay: '400ms' }}>
-            Criamos renderizações 3D fotorrealistas para arquitetos, construtoras e incorporadoras,
-            dando vida aos seus projetos antes mesmo da construção começar.
+            {slides[currentSlide].description}
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in" style={{ animationDelay: '600ms' }}>
             <Link to="/projects">
               <Button className="button-primary w-full sm:w-auto">Ver Projetos</Button>
             </Link>
-            <Link to="/contact">
+            <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20meu%20projeto." target="_blank" rel="noopener noreferrer">
               <Button variant="outline" className="button-secondary w-full sm:w-auto">Entre em Contato</Button>
-            </Link>
+            </a>
+          </div>
+          
+          {/* Slide Indicator */}
+          <div className="flex justify-center mt-8 gap-2">
+            {slides.map((_, index) => (
+              <button 
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  currentSlide === index ? 'w-8 bg-architect-accent' : 'w-2 bg-gray-300 dark:bg-gray-700'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
       </div>

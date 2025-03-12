@@ -6,8 +6,8 @@ import ProjectsGrid from '@/components/ProjectsGrid';
 import About from '@/components/About';
 import WorkTimeline from '@/components/WorkTimeline';
 import PartnersLogos from '@/components/PartnersLogos';
-import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import WhatsAppButton from '@/components/WhatsAppButton';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
@@ -43,8 +43,8 @@ const Index = () => {
       <About />
       <WorkTimeline />
       <PartnersLogos />
-      <Contact />
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };

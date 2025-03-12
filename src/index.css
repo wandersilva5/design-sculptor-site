@@ -101,15 +101,15 @@
   }
 
   h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl;
+    @apply text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
   }
 
   h2 {
-    @apply text-3xl md:text-4xl lg:text-5xl;
+    @apply text-2xl md:text-3xl lg:text-4xl xl:text-5xl;
   }
 
   h3 {
-    @apply text-2xl md:text-3xl;
+    @apply text-xl md:text-2xl lg:text-3xl;
   }
 
   p {
@@ -131,15 +131,15 @@
   }
   
   .section-padding {
-    @apply py-16 md:py-24;
+    @apply py-12 md:py-16 lg:py-24;
   }
   
   .button-primary {
-    @apply px-6 py-3 bg-architect-accent text-white rounded-md transition-all duration-300 hover:bg-blue-600 hover:shadow-lg;
+    @apply px-4 sm:px-6 py-2 sm:py-3 bg-architect-accent text-white rounded-md transition-all duration-300 hover:bg-blue-600 hover:shadow-lg;
   }
   
   .button-secondary {
-    @apply px-6 py-3 bg-transparent border border-black dark:border-white rounded-md transition-all duration-300 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black;
+    @apply px-4 sm:px-6 py-2 sm:py-3 bg-transparent border border-black dark:border-white rounded-md transition-all duration-300 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black;
   }
   
   .input-field {
@@ -151,11 +151,43 @@
   }
   
   .navbar-item {
-    @apply relative px-3 py-2 text-foreground hover:text-architect-accent transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-architect-accent after:scale-x-0 after:origin-center after:transition-transform hover:after:scale-x-100;
+    @apply relative px-2 md:px-3 py-2 text-foreground hover:text-architect-accent transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-architect-accent after:scale-x-0 after:origin-center after:transition-transform hover:after:scale-x-100;
   }
   
   .text-gradient {
     @apply bg-gradient-to-r from-architect-accent to-blue-700 bg-clip-text text-transparent;
+  }
+
+  /* Mobile specific styles */
+  @media (max-width: 640px) {
+    .container {
+      @apply px-4;
+    }
+    
+    .mobile-full {
+      @apply w-full;
+    }
+    
+    .mobile-stack {
+      @apply flex-col;
+    }
+    
+    .mobile-center {
+      @apply text-center;
+    }
+    
+    .mobile-touch-scroll {
+      @apply overflow-x-auto pb-4 scrollbar-none -mx-4 px-4;
+    }
+    
+    .scrollbar-none::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .scrollbar-none {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
   }
 }
 
@@ -184,7 +216,7 @@
 
 /* Scroll personalizado */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -197,4 +229,34 @@
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-gray-400 dark:bg-gray-600;
+}
+
+/* Mobile app-like styles for small screens */
+@media (max-width: 640px) {
+  body {
+    @apply overscroll-none;
+  }
+  
+  /* Bottom navigation bar for mobile */
+  .mobile-nav-bar {
+    @apply fixed bottom-0 left-0 right-0 bg-white dark:bg-black border-t border-gray-200 dark:border-gray-800 py-2 px-4 flex justify-around items-center z-50;
+  }
+  
+  .mobile-nav-item {
+    @apply flex flex-col items-center justify-center text-xs font-medium;
+  }
+  
+  .mobile-nav-icon {
+    @apply mb-1 text-gray-600 dark:text-gray-400;
+  }
+  
+  /* Pull to refresh indicator */
+  .pull-indicator {
+    @apply h-16 flex items-center justify-center text-gray-400;
+  }
+  
+  /* Status bar */
+  .mobile-status-bar {
+    @apply fixed top-0 left-0 right-0 h-6 bg-white/70 dark:bg-black/70 backdrop-blur-md z-50;
+  }
 }
