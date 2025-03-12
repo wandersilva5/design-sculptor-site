@@ -1,8 +1,10 @@
+
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import ProjectsGrid from '@/components/ProjectsGrid';
 import About from '@/components/About';
+import WorkTimeline from '@/components/WorkTimeline';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import { motion, useAnimation } from 'framer-motion';
@@ -38,6 +40,7 @@ const Index = () => {
         <ProjectsGrid limit={6} />
       </motion.div>
       <About />
+      <WorkTimeline />
       <Contact />
       <Footer />
     </div>
