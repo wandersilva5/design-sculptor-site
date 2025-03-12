@@ -1,10 +1,6 @@
-
 import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-
-// Adicionar three.js
-<lov-add-dependency>three@^0.133.1</lov-add-dependency>
 
 interface Model3DProps {
   className?: string;

@@ -1,10 +1,6 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-
-// Importar framer-motion
-<lov-add-dependency>framer-motion@^10.18.0</lov-add-dependency>
 
 // Define os tipos para projetos
 interface Project {
