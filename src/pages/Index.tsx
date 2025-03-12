@@ -5,6 +5,7 @@ import Hero from '@/components/Hero';
 import ProjectsGrid from '@/components/ProjectsGrid';
 import About from '@/components/About';
 import WorkTimeline from '@/components/WorkTimeline';
+import PartnersLogos from '@/components/PartnersLogos';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import { motion, useAnimation } from 'framer-motion';
@@ -41,6 +42,7 @@ const Index = () => {
       </motion.div>
       <About />
       <WorkTimeline />
+      <PartnersLogos />
       <Contact />
       <Footer />
     </div>

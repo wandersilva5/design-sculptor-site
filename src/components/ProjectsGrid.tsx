@@ -1,6 +1,8 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X } from 'lucide-react';
 
 // Define os tipos para projetos
 interface Project {
@@ -66,12 +68,24 @@ interface ProjectsGridProps {
 
 const ProjectsGrid = ({ limit, showFilters = true }: ProjectsGridProps) => {
   const [selectedCategory, setSelectedCategory] = useState('Todos');
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   
   const filteredProjects = selectedCategory === 'Todos'
     ? projectsData
     : projectsData.filter(project => project.category === selectedCategory);
   
   const displayedProjects = limit ? filteredProjects.slice(0, limit) : filteredProjects;
+
+  const openModal = (imageSrc: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    setSelectedImage(imageSrc);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+    document.body.style.overflow = 'auto';
+  };
 
   const container = {
     hidden: { opacity: 0 },
@@ -123,7 +137,7 @@ const ProjectsGrid = ({ limit, showFilters = true }: ProjectsGridProps) => {
       >
         {displayedProjects.map((project) => (
           <motion.div key={project.id} variants={item}>
-            <Link to={`/project/${project.id}`} className="block h-full">
+            <Link to={`/project/${project.id}`} className="block h-full" onClick={(e) => openModal(project.imageSrc, e)}>
               <div className="group h-full rounded-lg overflow-hidden bg-card card-hover flex flex-col">
                 <div className="relative h-64 overflow-hidden">
                   <img
@@ -171,6 +185,37 @@ const ProjectsGrid = ({ limit, showFilters = true }: ProjectsGridProps) => {
           </Link>
         </div>
       )}
+
+      {/* Modal de imagem em tela cheia */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+            onClick={closeModal}
+          >
+            <button 
+              className="absolute top-4 right-4 z-50 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+              onClick={closeModal}
+            >
+              <X size={24} />
+            </button>
+            <motion.img
+              src={selectedImage}
+              alt="Imagem do projeto em tela cheia"
+              className="max-w-full max-h-[90vh] object-contain cursor-pointer"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={closeModal}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
