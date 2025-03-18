@@ -1,78 +1,10 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
-
-// Define os tipos para projetos
-interface Project {
-  id: string;
-  title: string;
-  category: string;
-  imageSrc: string;
-  description: string;
-}
-
-// Mockup de projetos com as novas imagens
-const projectsData: Project[] = [
-  {
-    id: '1',
-    title: 'Residência Contemporânea',
-    category: 'Residencial',
-    imageSrc: '/lovable-uploads/7e7d328d-0d9d-4312-ad9b-a53d0edb6d82.png',
-    description: 'Projeto moderno com piscina e área de lazer integrada, perfeito para famílias.'
-  },
-  {
-    id: '2',
-    title: 'Casa de Praia',
-    category: 'Residencial',
-    imageSrc: '/lovable-uploads/baddf316-79fb-4399-b32a-022879d8897d.png',
-    description: 'Design minimalista com garagem coberta e ampla área frontal.'
-  },
-  {
-    id: '3',
-    title: 'Sobrado Urbano',
-    category: 'Residencial',
-    imageSrc: '/lovable-uploads/cbdf3c9b-f671-4f86-b74d-118cad389160.png',
-    description: 'Sobrado moderno com acabamentos premium e design funcional para ambientes urbanos.'
-  },
-  {
-    id: '4',
-    title: 'Edifício Comercial',
-    category: 'Comercial',
-    imageSrc: '/lovable-uploads/ebe8d978-ddde-471b-af95-65135ce02f27.png',
-    description: 'Espaço comercial com design inovador e sustentável para empresas modernas.'
-  },
-  {
-    id: '5',
-    title: 'Condomínio Horizontal',
-    category: 'Residencial',
-    imageSrc: '/lovable-uploads/334e44c1-588a-4df3-ad57-02c49ee99bfb.png',
-    description: 'Conjunto de casas de alto padrão com infraestrutura completa de lazer.'
-  },
-  {
-    id: '6',
-    title: 'Área de Lazer Exclusiva',
-    category: 'Conceitual',
-    imageSrc: '/lovable-uploads/3576643669367029317_22870815280.jpeg',
-    description: 'Ambiente interno sofisticado com acabamentos premium e área de entretenimento integrada.'
-  },
-  {
-    id: '7',
-    title: 'Residência com Piscina',
-    category: 'Residencial',
-    imageSrc: '/lovable-uploads/a4814502-84b9-463a-b968-b41e9e5fed62.png',
-    description: 'Residência moderna com piscina e área de lazer integrada, perfeita para relaxar e receber amigos.'
-  },
-  {
-    id: '8',
-    title: 'Casa Minimalista',
-    category: 'Residencial',
-    imageSrc: '/lovable-uploads/28da9447-3398-48ff-862d-e39c27889603.png',
-    description: 'Design limpo e contemporâneo com terraço amplo e áreas funcionais bem integradas.'
-  }
-];
-
-const categories = ['Todos', 'Residencial', 'Comercial', 'Conceitual'];
+import { projectsData, getCategories, Project } from '@/utils/projectsData';
+import { Card, CardContent } from '@/components/ui/card';
 
 interface ProjectsGridProps {
   limit?: number;
@@ -82,12 +14,30 @@ interface ProjectsGridProps {
 const ProjectsGrid = ({ limit, showFilters = true }: ProjectsGridProps) => {
   const [selectedCategory, setSelectedCategory] = useState('Todos');
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [categories, setCategories] = useState<string[]>([]);
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [error, setError] = useState<string | null>(null);
   
-  const filteredProjects = selectedCategory === 'Todos'
-    ? projectsData
-    : projectsData.filter(project => project.category === selectedCategory);
-  
-  const displayedProjects = limit ? filteredProjects.slice(0, limit) : filteredProjects;
+  useEffect(() => {
+    try {
+      // Carrega as categorias
+      const availableCategories = getCategories();
+      setCategories(availableCategories);
+      
+      // Filtra os projetos pela categoria selecionada
+      const filteredProjects = selectedCategory === 'Todos'
+        ? projectsData
+        : projectsData.filter(project => project.category === selectedCategory);
+      
+      // Limita o número de projetos se necessário
+      const displayedProjects = limit ? filteredProjects.slice(0, limit) : filteredProjects;
+      setProjects(displayedProjects);
+      setError(null);
+    } catch (err) {
+      console.error('Erro ao carregar projetos:', err);
+      setError('Não foi possível carregar os projetos. Por favor, tente novamente mais tarde.');
+    }
+  }, [selectedCategory, limit]);
 
   const openModal = (imageSrc: string, e: React.MouseEvent) => {
     e.preventDefault();
@@ -115,15 +65,16 @@ const ProjectsGrid = ({ limit, showFilters = true }: ProjectsGridProps) => {
     show: { opacity: 1, y: 0, transition: { duration: 0.6 } }
   };
 
+  if (error) {
+    return (
+      <div className="text-center p-8">
+        <p className="text-red-500">{error}</p>
+      </div>
+    );
+  }
+
   return (
     <div id="projects" className="container mx-auto px-4 md:px-6 py-16">
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-display mb-4">Nossos Projetos</h2>
-        <p className="text-muted-foreground max-w-2xl mx-auto">
-          Explore nossa seleção de projetos arquitetônicos em 3D, desde residências modernas até edifícios comerciais inovadores.
-        </p>
-      </div>
-      
       {showFilters && (
         <div className="flex justify-center flex-wrap gap-2 mb-12">
           {categories.map((category) => (
@@ -148,24 +99,29 @@ const ProjectsGrid = ({ limit, showFilters = true }: ProjectsGridProps) => {
         initial="hidden"
         animate="show"
       >
-        {displayedProjects.map((project) => (
+        {projects.map((project) => (
           <motion.div key={project.id} variants={item}>
-            <Link to={`/project/${project.id}`} className="block h-full" onClick={(e) => openModal(project.imageSrc, e)}>
-              <div className="group h-full rounded-lg overflow-hidden bg-card card-hover flex flex-col">
+            <Card className="group h-full overflow-hidden card-hover">
+              <Link to={`/project/${project.id}`} className="block h-full" onClick={(e) => openModal(project.imageSrc, e)}>
                 <div className="relative h-64 overflow-hidden">
                   <img
                     src={project.imageSrc}
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    onError={(e) => {
+                      // Fallback para imagem padrão caso haja erro
+                      const target = e.target as HTMLImageElement;
+                      target.src = '/placeholder.svg';
+                    }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                     <span className="text-white text-sm font-medium">{project.category}</span>
                   </div>
                 </div>
-                <div className="p-6 flex-grow flex flex-col">
+                <CardContent className="p-6">
                   <h3 className="text-xl font-medium mb-2">{project.title}</h3>
-                  <p className="text-muted-foreground text-sm flex-grow">{project.description}</p>
-                  <div className="mt-4 flex items-center text-architect-accent font-medium text-sm">
+                  <p className="text-muted-foreground text-sm mb-4">{project.description}</p>
+                  <div className="flex items-center text-architect-accent font-medium text-sm">
                     <span>Ver detalhes</span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -182,14 +138,14 @@ const ProjectsGrid = ({ limit, showFilters = true }: ProjectsGridProps) => {
                       />
                     </svg>
                   </div>
-                </div>
-              </div>
-            </Link>
+                </CardContent>
+              </Link>
+            </Card>
           </motion.div>
         ))}
       </motion.div>
       
-      {limit && displayedProjects.length >= limit && (
+      {limit && projects.length >= limit && (
         <div className="mt-12 text-center">
           <Link to="/projects">
             <button className="button-secondary">

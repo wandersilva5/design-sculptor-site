@@ -4,6 +4,9 @@ import Navbar from '@/components/Navbar';
 import ProjectsGrid from '@/components/ProjectsGrid';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
+import { Pagination, PaginationContent, PaginationItem, PaginationLink } from '@/components/ui/pagination';
 
 const Projects = () => {
   useEffect(() => {
@@ -11,10 +14,10 @@ const Projects = () => {
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative min-h-screen flex flex-col">
       <Navbar />
       
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20">
+      <section className="pt-32 pb-16 md:pt-40 md:pb-20 flex-grow">
         <div className="container mx-auto px-4 md:px-6">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -33,6 +36,30 @@ const Projects = () => {
           </motion.div>
           
           <ProjectsGrid showFilters={true} />
+          
+          <div className="mt-16">
+            <Pagination>
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationLink isActive>1</PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationLink>2</PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationLink>3</PaginationLink>
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
+          </div>
+          
+          <div className="mt-16 text-center">
+            <Link to="/contact">
+              <Button className="bg-architect-accent hover:bg-architect-accent/90">
+                Solicite um orçamento
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
       
