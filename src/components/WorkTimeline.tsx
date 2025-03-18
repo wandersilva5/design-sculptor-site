@@ -16,31 +16,31 @@ const WorkTimeline = () => {
       icon: <FileUp size={24} />,
       title: "Recebimento do Arquivo",
       description: "Recebemos seu modelo SketchUp ou arquivo CAD para iniciar o processo de visualização 3D.",
-      imageSrc: "/lovable-uploads/abfd0419-38f5-4637-aa3a-9039214fa0a2.png"
+      imageSrc: "/images/processo1.jpg"
     },
     {
       icon: <Image size={24} />,
       title: "Primeira Prova",
       description: "Desenvolvemos um modelo 3D inicial baseado nos seus arquivos e compartilhamos uma prévia para avaliação.",
-      imageSrc: "/lovable-uploads/d9116229-342f-485b-865b-5be76e1e37e6.png"
+      imageSrc: "/images/processo2.jpg"
     },
     {
       icon: <Image size={24} />,
       title: "Renderização de Imagens",
       description: "Após aprovação da modelagem, criamos renderizações de alta qualidade com materiais, texturas e iluminação.",
-      imageSrc: "/lovable-uploads/07d83abd-76be-486c-95b3-9ed205dee2c8.png"
+      imageSrc: "/images/processo3.jpg"
     },
     {
       icon: <CheckCircle size={24} />,
       title: "Validação Final",
       description: "Refinamos as imagens com base no seu feedback, ajustando detalhes até atingir o resultado ideal.",
-      imageSrc: "/lovable-uploads/abfd0419-38f5-4637-aa3a-9039214fa0a2.png"
+      imageSrc: "/images/processo4.jpg"
     },
     {
       icon: <Send size={24} />,
       title: "Entrega",
       description: "Fornecemos todos os arquivos finais em alta resolução, prontos para apresentação ou publicação.",
-      imageSrc: "/lovable-uploads/d9116229-342f-485b-865b-5be76e1e37e6.png"
+      imageSrc: "/images/processo5.jpg"
     }
   ];
 

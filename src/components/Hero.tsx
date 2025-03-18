@@ -8,17 +8,17 @@ const slides = [
   {
     title: "Transformando <span class='text-gradient'>Visões</span> em Projetos Reais",
     description: "Criamos renderizações 3D fotorrealistas para arquitetos, construtoras e incorporadoras, dando vida aos seus projetos antes mesmo da construção começar.",
-    image: "/lovable-uploads/abfd0419-38f5-4637-aa3a-9039214fa0a2.png"
+    image: "/images/projeto1.jpg" // Atualize para o caminho local
   },
   {
     title: "Excelência em <span class='text-gradient'>Visualização</span> Arquitetônica",
     description: "Nossa expertise combina tecnologia avançada e sensibilidade estética para criar representações precisas e impactantes dos seus projetos.",
-    image: "/lovable-uploads/abfd0419-38f5-4637-aa3a-9039214fa0a2.png"
+    image: "/images/projeto2.jpg" // Atualize para o caminho local
   },
   {
     title: "Projetos que <span class='text-gradient'>Impressionam</span>",
     description: "Crie conexões emocionais com seus clientes através de imagens que comunicam a essência e o potencial de seus projetos arquitetônicos.",
-    image: "/lovable-uploads/abfd0419-38f5-4637-aa3a-9039214fa0a2.png"
+    image: "/images/projeto3.jpg" // Atualize para o caminho local
   }
 ];
 

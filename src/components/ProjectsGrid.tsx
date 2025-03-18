@@ -19,42 +19,42 @@ const projectsData: Project[] = [
     id: '1',
     title: 'Residência Contemporânea',
     category: 'Residencial',
-    imageSrc: '/lovable-uploads/abfd0419-38f5-4637-aa3a-9039214fa0a2.png',
+    imageSrc: '/images/projeto1.jpg',
     description: 'Projeto moderno com piscina e área de lazer integrada, perfeito para famílias.'
   },
   {
     id: '2',
     title: 'Casa de Praia',
     category: 'Residencial',
-    imageSrc: '/lovable-uploads/d9116229-342f-485b-865b-5be76e1e37e6.png',
+    imageSrc: '/images/projeto2.jpg',
     description: 'Design minimalista com garagem coberta e ampla área frontal.'
   },
   {
     id: '3',
     title: 'Sobrado Urbano',
     category: 'Residencial',
-    imageSrc: '/lovable-uploads/07d83abd-76be-486c-95b3-9ed205dee2c8.png',
+    imageSrc: '/images/projeto3.jpg',
     description: 'Sobrado moderno com acabamentos premium e design funcional para ambientes urbanos.'
   },
   {
     id: '4',
     title: 'Edifício Comercial',
     category: 'Comercial',
-    imageSrc: '/lovable-uploads/abfd0419-38f5-4637-aa3a-9039214fa0a2.png',
+    imageSrc: '/images/projeto4.jpg',
     description: 'Espaço comercial com design inovador e sustentável para empresas modernas.'
   },
   {
     id: '5',
     title: 'Condomínio Horizontal',
     category: 'Residencial',
-    imageSrc: '/lovable-uploads/d9116229-342f-485b-865b-5be76e1e37e6.png',
+    imageSrc: '/images/projeto5.jpg',
     description: 'Conjunto de casas de alto padrão com infraestrutura completa de lazer.'
   },
   {
     id: '6',
     title: 'Centro Empresarial',
     category: 'Comercial',
-    imageSrc: '/lovable-uploads/07d83abd-76be-486c-95b3-9ed205dee2c8.png',
+    imageSrc: '/images/projeto6.jpg',
     description: 'Projeto corporativo com fachada moderna e interiores funcionais.'
   }
 ];
