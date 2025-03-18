@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -8,17 +7,17 @@ const slides = [
   {
     title: "Transformando <span class='text-gradient'>Visões</span> em Projetos Reais",
     description: "Criamos renderizações 3D fotorrealistas para arquitetos, construtoras e incorporadoras, dando vida aos seus projetos antes mesmo da construção começar.",
-    image: "/images/projeto1.jpg" // Atualize para o caminho local
+    image: "/lovable-uploads/7e7d328d-0d9d-4312-ad9b-a53d0edb6d82.png"
   },
   {
     title: "Excelência em <span class='text-gradient'>Visualização</span> Arquitetônica",
     description: "Nossa expertise combina tecnologia avançada e sensibilidade estética para criar representações precisas e impactantes dos seus projetos.",
-    image: "/images/projeto2.jpg" // Atualize para o caminho local
+    image: "/lovable-uploads/baddf316-79fb-4399-b32a-022879d8897d.png"
   },
   {
     title: "Projetos que <span class='text-gradient'>Impressionam</span>",
     description: "Crie conexões emocionais com seus clientes através de imagens que comunicam a essência e o potencial de seus projetos arquitetônicos.",
-    image: "/images/projeto3.jpg" // Atualize para o caminho local
+    image: "/lovable-uploads/cbdf3c9b-f671-4f86-b74d-118cad389160.png"
   }
 ];
 

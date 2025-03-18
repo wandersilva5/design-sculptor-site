@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -13,49 +12,49 @@ interface Project {
   description: string;
 }
 
-// Mockup de projetos
+// Mockup de projetos com as novas imagens
 const projectsData: Project[] = [
   {
     id: '1',
     title: 'Residência Contemporânea',
     category: 'Residencial',
-    imageSrc: '/images/projeto1.jpg',
+    imageSrc: '/lovable-uploads/7e7d328d-0d9d-4312-ad9b-a53d0edb6d82.png',
     description: 'Projeto moderno com piscina e área de lazer integrada, perfeito para famílias.'
   },
   {
     id: '2',
     title: 'Casa de Praia',
     category: 'Residencial',
-    imageSrc: '/images/projeto2.jpg',
+    imageSrc: '/lovable-uploads/baddf316-79fb-4399-b32a-022879d8897d.png',
     description: 'Design minimalista com garagem coberta e ampla área frontal.'
   },
   {
     id: '3',
     title: 'Sobrado Urbano',
     category: 'Residencial',
-    imageSrc: '/images/projeto3.jpg',
+    imageSrc: '/lovable-uploads/cbdf3c9b-f671-4f86-b74d-118cad389160.png',
     description: 'Sobrado moderno com acabamentos premium e design funcional para ambientes urbanos.'
   },
   {
     id: '4',
     title: 'Edifício Comercial',
     category: 'Comercial',
-    imageSrc: '/images/projeto4.jpg',
+    imageSrc: '/lovable-uploads/ebe8d978-ddde-471b-af95-65135ce02f27.png',
     description: 'Espaço comercial com design inovador e sustentável para empresas modernas.'
   },
   {
     id: '5',
     title: 'Condomínio Horizontal',
     category: 'Residencial',
-    imageSrc: '/images/projeto5.jpg',
+    imageSrc: '/lovable-uploads/334e44c1-588a-4df3-ad57-02c49ee99bfb.png',
     description: 'Conjunto de casas de alto padrão com infraestrutura completa de lazer.'
   },
   {
     id: '6',
-    title: 'Centro Empresarial',
-    category: 'Comercial',
-    imageSrc: '/images/projeto6.jpg',
-    description: 'Projeto corporativo com fachada moderna e interiores funcionais.'
+    title: 'Área de Lazer Exclusiva',
+    category: 'Conceitual',
+    imageSrc: '/lovable-uploads/20f0e943-ced5-45eb-8ff8-24b0673c4529.png',
+    description: 'Ambiente interno sofisticado com acabamentos premium e área de entretenimento integrada.'
   }
 ];
 

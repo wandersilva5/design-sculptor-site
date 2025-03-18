@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FileUp, Image, CheckCircle, Send, Clock } from 'lucide-react';
@@ -16,31 +15,31 @@ const WorkTimeline = () => {
       icon: <FileUp size={24} />,
       title: "Recebimento do Arquivo",
       description: "Recebemos seu modelo SketchUp ou arquivo CAD para iniciar o processo de visualização 3D.",
-      imageSrc: "/images/processo1.jpg"
+      imageSrc: "/lovable-uploads/7e7d328d-0d9d-4312-ad9b-a53d0edb6d82.png"
     },
     {
       icon: <Image size={24} />,
       title: "Primeira Prova",
       description: "Desenvolvemos um modelo 3D inicial baseado nos seus arquivos e compartilhamos uma prévia para avaliação.",
-      imageSrc: "/images/processo2.jpg"
+      imageSrc: "/lovable-uploads/baddf316-79fb-4399-b32a-022879d8897d.png"
     },
     {
       icon: <Image size={24} />,
       title: "Renderização de Imagens",
       description: "Após aprovação da modelagem, criamos renderizações de alta qualidade com materiais, texturas e iluminação.",
-      imageSrc: "/images/processo3.jpg"
+      imageSrc: "/lovable-uploads/cbdf3c9b-f671-4f86-b74d-118cad389160.png"
     },
     {
       icon: <CheckCircle size={24} />,
       title: "Validação Final",
       description: "Refinamos as imagens com base no seu feedback, ajustando detalhes até atingir o resultado ideal.",
-      imageSrc: "/images/processo4.jpg"
+      imageSrc: "/lovable-uploads/ebe8d978-ddde-471b-af95-65135ce02f27.png"
     },
     {
       icon: <Send size={24} />,
       title: "Entrega",
       description: "Fornecemos todos os arquivos finais em alta resolução, prontos para apresentação ou publicação.",
-      imageSrc: "/images/processo5.jpg"
+      imageSrc: "/lovable-uploads/334e44c1-588a-4df3-ad57-02c49ee99bfb.png"
     }
   ];
 
