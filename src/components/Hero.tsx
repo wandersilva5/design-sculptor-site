@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -18,6 +19,16 @@ const slides = [
     title: "Projetos que <span class='text-gradient'>Impressionam</span>",
     description: "Crie conexões emocionais com seus clientes através de imagens que comunicam a essência e o potencial de seus projetos arquitetônicos.",
     image: "/lovable-uploads/cbdf3c9b-f671-4f86-b74d-118cad389160.png"
+  },
+  {
+    title: "Design <span class='text-gradient'>Contemporâneo</span>",
+    description: "Valorizamos espaços ao ar livre integrados à arquitetura, criando ambientes que conectam natureza e design moderno.",
+    image: "/lovable-uploads/a4814502-84b9-463a-b968-b41e9e5fed62.png"
+  },
+  {
+    title: "Arquitetura <span class='text-gradient'>Minimalista</span>",
+    description: "Linhas limpas e espaços bem planejados que capturam a essência do design moderno com toques sustentáveis.",
+    image: "/lovable-uploads/28da9447-3398-48ff-862d-e39c27889603.png"
   }
 ];
 
@@ -78,15 +89,14 @@ const Hero = () => {
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-black z-0"></div>
       
-      {/* 3D Effect Overlay */}
+      {/* Image Background - No blur now */}
       <div 
         ref={overlayRef}
-        className="absolute inset-0 z-0 opacity-30 transition-transform duration-200"
+        className="absolute inset-0 z-0 opacity-50 transition-transform duration-200"
         style={{ 
           backgroundImage: `url(${slides[currentSlide].image})`, 
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          filter: 'blur(8px)'
         }}
       ></div>
       
@@ -114,13 +124,15 @@ const Hero = () => {
             Design Arquitetônico 3D
           </div>
           
+          {/* Title with background */}
           <h1 
-            className="mb-6 font-display animate-fade-in-left"
+            className="mb-6 font-display animate-fade-in-left px-4 py-2 bg-black/40 backdrop-blur-sm rounded-md inline-block"
             style={{ animationDelay: '200ms' }}
             dangerouslySetInnerHTML={{ __html: slides[currentSlide].title }}
           />
           
-          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in-right text-balance" style={{ animationDelay: '400ms' }}>
+          {/* Description with background */}
+          <p className="text-lg md:text-xl text-white mb-8 max-w-2xl mx-auto animate-fade-in-right text-balance bg-black/40 backdrop-blur-sm p-4 rounded-md" style={{ animationDelay: '400ms' }}>
             {slides[currentSlide].description}
           </p>
           

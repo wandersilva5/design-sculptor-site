@@ -55,6 +55,20 @@ const projectsData: Project[] = [
     category: 'Conceitual',
     imageSrc: '/lovable-uploads/20f0e943-ced5-45eb-8ff8-24b0673c4529.png',
     description: 'Ambiente interno sofisticado com acabamentos premium e área de entretenimento integrada.'
+  },
+  {
+    id: '7',
+    title: 'Residência com Piscina',
+    category: 'Residencial',
+    imageSrc: '/lovable-uploads/a4814502-84b9-463a-b968-b41e9e5fed62.png',
+    description: 'Residência moderna com piscina e área de lazer integrada, perfeita para relaxar e receber amigos.'
+  },
+  {
+    id: '8',
+    title: 'Casa Minimalista',
+    category: 'Residencial',
+    imageSrc: '/lovable-uploads/28da9447-3398-48ff-862d-e39c27889603.png',
+    description: 'Design limpo e contemporâneo com terraço amplo e áreas funcionais bem integradas.'
   }
 ];
 
