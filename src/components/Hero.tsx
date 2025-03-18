@@ -87,7 +87,7 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-black z-0"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-10 to-white dark:from-gray-900 dark:to-black z-0"></div>
       
       {/* Image Background - No blur now */}
       <div 

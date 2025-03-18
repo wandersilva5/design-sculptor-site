@@ -66,22 +66,22 @@ const Model3D = ({ className, modelType = 'building' }: Model3DProps) => {
     switch(modelType) {
       case 'house':
         // Base/Foundation
-        createBox(0, 0, 0, 10, 0.5, 8, 0xd2d2d2);
+        createBox(0, 0, 100, 10, 0.5, 8, 0xd2d2d2);
         
         // Main structure
-        createBox(0, 3, 0, 10, 5, 8, 0xffffff);
+        createBox(0, 3, 10, 10, 5, 8, 0xffffff);
         
         // Roof
         createRoof(0, 6.5, 0, 12, 3, 10, 0x8b4513);
         
         // Windows
-        createBox(3, 3, 4.01, 2, 2, 0.1, 0x87ceeb);
-        createBox(-3, 3, 4.01, 2, 2, 0.1, 0x87ceeb);
-        createBox(3, 3, -4.01, 2, 2, 0.1, 0x87ceeb);
-        createBox(-3, 3, -4.01, 2, 2, 0.1, 0x87ceeb);
+        createBox(3, 3, 5.01, 2, 2, 0.1, 0x87ceeb);
+        createBox(-3, 3, 5.01, 2, 2, 0.1, 0x87ceeb);
+        createBox(3, 3, -5.01, 2, 2, 0.1, 0x87ceeb);
+        createBox(-3, 3, -5.01, 2, 2, 0.1, 0x87ceeb);
         
         // Door
-        createBox(0, 1.5, 4.01, 2, 3, 0.1, 0x8b4513);
+        createBox(0, 1.5, 5.01, 2, 3, 0.1, 0x8b4513);
         break;
         
       case 'interior':

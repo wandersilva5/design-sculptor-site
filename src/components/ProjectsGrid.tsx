@@ -53,7 +53,7 @@ const projectsData: Project[] = [
     id: '6',
     title: 'Área de Lazer Exclusiva',
     category: 'Conceitual',
-    imageSrc: '/lovable-uploads/20f0e943-ced5-45eb-8ff8-24b0673c4529.png',
+    imageSrc: '/lovable-uploads/3576643669367029317_22870815280.jpeg',
     description: 'Ambiente interno sofisticado com acabamentos premium e área de entretenimento integrada.'
   },
   {
