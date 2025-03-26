@@ -6,6 +6,7 @@ interface TimelineItem {
   icon: React.ReactNode;
   title: string;
   description: string;
+  subdescription?: string;
   imageSrc: string;
 }
 
@@ -13,38 +14,40 @@ const WorkTimeline = () => {
   const timelineItems: TimelineItem[] = [
     {
       icon: <FileUp size={24} />,
-      title: "Recebimento do Arquivo",
-      description: "Recebemos seu modelo SketchUp ou arquivo CAD para iniciar o processo de visualização 3D.",
+      title: "Recebimento dos Arquivos",
+      description: "Entrega do projeto arquitetônico completo ou modelagem 3D em meio digital (arquivos na extensão .dwg, skp, rvt, max) etc.",
       imageSrc: "/lovable-uploads/7e7d328d-0d9d-4312-ad9b-a53d0edb6d82.png"
     },
     {
       icon: <Image size={24} />,
-      title: "Primeira Prova",
-      description: "Desenvolvemos um modelo 3D inicial baseado nos seus arquivos e compartilhamos uma prévia para avaliação.",
+      title: "Briefing do Cliente",
+      description: "É feito um briefing via whatsapp ou ligação com o cliente para definir especificações de cores e materiais de revestimento, decoração e iluminação para o desenvolvimento das ilustrações 3D.",
       imageSrc: "/lovable-uploads/baddf316-79fb-4399-b32a-022879d8897d.png"
     },
     {
       icon: <Image size={24} />,
-      title: "Renderização de Imagens",
-      description: "Após aprovação da modelagem, criamos renderizações de alta qualidade com materiais, texturas e iluminação.",
+      title: "Criação",
+      description: "Após o briefing iniciamos os serviços com: Direção de arte, concepção de projeto de interiores e decoração (caso necessário), composição, estudo de câmeras e iluminação1, para fazer uma primeira validação.",
+      subdescription: "OBS.: Modelagem de objetos de decoração e mobíliário específicos não fazem parte deste orçamento e deverão ser negociados a parte.",
       imageSrc: "/lovable-uploads/cbdf3c9b-f671-4f86-b74d-118cad389160.png"
     },
     {
       icon: <CheckCircle size={24} />,
-      title: "Validação Final",
-      description: "Refinamos as imagens com base no seu feedback, ajustando detalhes até atingir o resultado ideal.",
+      title: "Validação",
+      description: "Para garantir o entendimento correto do projeto e diminuir retrabalho, o processo de validação com o cliente passa por algumas etapas que são as etapas: OVERRIDE - R00 - R01 - R02.",
+      subdescription: "OBS.: Modelagem de objetos de decoração e mobíliário específicos não fazem parte deste orçamento e deverão ser negociados a parte.",
       imageSrc: "/lovable-uploads/ebe8d978-ddde-471b-af95-65135ce02f27.png"
     },
     {
       icon: <Send size={24} />,
-      title: "Entrega",
-      description: "Fornecemos todos os arquivos finais em alta resolução, prontos para apresentação ou publicação.",
+      title: "Entrega HR",
+      description: "A versão HR é entregue após todas as necessidades do cliente serem atendidas, e são enviadas via Whatsapp ou E-Mail.",
       imageSrc: "/lovable-uploads/334e44c1-588a-4df3-ad57-02c49ee99bfb.png"
     }
   ];
 
   return (
-    <section id="process" className="py-16 md:py-24 overflow-hidden">
+    <div id="process" className="py-16 md:py-24 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
           <div className="inline-block mb-4 px-4 py-1 rounded-full bg-architect-accent/10 text-architect-accent">
@@ -78,6 +81,11 @@ const WorkTimeline = () => {
                     </div>
                     <h3 className="text-xl font-medium mb-2">{item.title}</h3>
                     <p className="text-muted-foreground text-sm">{item.description}</p>
+                    {item.subdescription && (
+                      <div className="text-muted-foreground text-xs mt-2">
+                        {item.subdescription}
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -85,7 +93,7 @@ const WorkTimeline = () => {
                 <div className="flex flex-col items-center">
                   <div className="relative bg-architect-accent text-white p-2 rounded-full z-10">
                     <Clock size={24} />
-                    <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-sm font-medium">
+                    <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-sm font-medium text-architect-accent">
                       {index + 1}
                     </span>
                   </div>
@@ -111,6 +119,11 @@ const WorkTimeline = () => {
                     </div>
                     <h3 className="text-xl font-medium mb-2">{item.title}</h3>
                     <p className="text-muted-foreground text-sm">{item.description}</p>
+                    {item.subdescription && (
+                      <div className="text-muted-foreground text-xs mt-2">
+                        {item.subdescription}
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -118,7 +131,7 @@ const WorkTimeline = () => {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

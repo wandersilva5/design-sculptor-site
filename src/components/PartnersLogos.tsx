@@ -13,7 +13,7 @@ const PartnersLogos = () => {
   ];
 
   return (
-    <section className="py-16 bg-muted/30">
+    <div className="py-16">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-display mb-4">Empresas Parceiras</h2>
@@ -46,7 +46,7 @@ const PartnersLogos = () => {
           ))}
         </motion.div>
       </div>
-    </section>
+    </div>
   );
 };
 

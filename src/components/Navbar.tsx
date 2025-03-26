@@ -54,7 +54,7 @@ const Navbar = () => {
             to="/" 
             className="text-xl md:text-2xl font-display font-semibold text-foreground z-10"
           >
-            Estúdio<span className="text-architect-accent">3D</span>
+            Deivisson<span className="text-architect-accent">3D</span>
           </Link>
 
           {/* Desktop Navigation */}

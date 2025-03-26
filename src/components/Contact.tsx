@@ -13,18 +13,18 @@ const Contact = () => {
     subject: '',
     message: ''
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
-  
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulação de envio
     setTimeout(() => {
       toast({
@@ -82,9 +82,9 @@ const Contact = () => {
             discutir como podemos ajudar no seu próximo projeto.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
@@ -92,7 +92,7 @@ const Contact = () => {
           >
             <div className="glass-panel p-8 rounded-lg h-full">
               <h3 className="text-2xl font-medium mb-6">Envie uma mensagem</h3>
-              
+
               <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 gap-6">
                   <div>
@@ -110,7 +110,7 @@ const Contact = () => {
                       placeholder="Seu nome"
                     />
                   </div>
-                  
+
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium mb-2">
                       Email
@@ -126,7 +126,7 @@ const Contact = () => {
                       placeholder="seu.email@exemplo.com"
                     />
                   </div>
-                  
+
                   <div>
                     <label htmlFor="subject" className="block text-sm font-medium mb-2">
                       Assunto
@@ -142,7 +142,7 @@ const Contact = () => {
                       placeholder="Assunto da mensagem"
                     />
                   </div>
-                  
+
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium mb-2">
                       Mensagem
@@ -158,10 +158,10 @@ const Contact = () => {
                       placeholder="Detalhes do seu projeto..."
                     />
                   </div>
-                  
+
                   <div>
-                    <Button 
-                      type="submit" 
+                    <Button
+                      type="submit"
                       className="button-primary w-full flex items-center justify-center"
                       disabled={isSubmitting}
                     >
@@ -177,8 +177,8 @@ const Contact = () => {
               </form>
             </div>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
@@ -187,18 +187,18 @@ const Contact = () => {
           >
             <div className="glass-panel p-8 rounded-lg mb-8">
               <h3 className="text-2xl font-medium mb-6">Informações de contato</h3>
-              
+
               <div className="space-y-6">
                 {contactInfo.map((item, index) => (
                   <div key={index} className="flex items-start">
-                    <div className="bg-architect-accent/10 p-3 rounded-full text-architect-accent mr-4">
+                    <div className="bg-architect-accent/15 p-3 rounded-full text-architect-accent mr-4 shadow-sm">
                       {item.icon}
                     </div>
                     <div>
                       <h4 className="text-base font-medium">{item.title}</h4>
                       {item.link ? (
-                        <a 
-                          href={item.link} 
+                        <a
+                          href={item.link}
                           className="text-muted-foreground hover:text-architect-accent transition-colors"
                           target={item.link.startsWith('http') ? '_blank' : undefined}
                           rel={item.link.startsWith('http') ? 'noopener noreferrer' : undefined}
@@ -213,17 +213,17 @@ const Contact = () => {
                 ))}
               </div>
             </div>
-            
+
             <div className="glass-panel p-8 rounded-lg flex-grow">
               <h3 className="text-2xl font-medium mb-6">Siga-nos</h3>
               <p className="text-muted-foreground mb-6">
                 Conecte-se conosco nas redes sociais para acompanhar nossos projetos mais recentes e novidades.
               </p>
-              
+
               <div className="flex space-x-4">
-                <a 
-                  href="#" 
-                  className="bg-architect-accent/10 p-3 rounded-full text-architect-accent hover:bg-architect-accent hover:text-white transition-colors"
+                <a
+                  href="#"
+                  className="bg-architect-accent/15 p-3 rounded-full text-architect-accent hover:bg-architect-accent hover:text-white transition-colors shadow-sm"
                   aria-label="Instagram"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -232,9 +232,9 @@ const Contact = () => {
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                   </svg>
                 </a>
-                
-                <a 
-                  href="#" 
+
+                <a
+                  href="#"
                   className="bg-architect-accent/10 p-3 rounded-full text-architect-accent hover:bg-architect-accent hover:text-white transition-colors"
                   aria-label="LinkedIn"
                 >
@@ -244,9 +244,9 @@ const Contact = () => {
                     <circle cx="4" cy="4" r="2"></circle>
                   </svg>
                 </a>
-                
-                <a 
-                  href="#" 
+
+                <a
+                  href="#"
                   className="bg-architect-accent/10 p-3 rounded-full text-architect-accent hover:bg-architect-accent hover:text-white transition-colors"
                   aria-label="Pinterest"
                 >
@@ -262,9 +262,9 @@ const Contact = () => {
                     <path d="M7.5 7.5l2.1 2.1"></path>
                   </svg>
                 </a>
-                
-                <a 
-                  href="#" 
+
+                <a
+                  href="#"
                   className="bg-architect-accent/10 p-3 rounded-full text-architect-accent hover:bg-architect-accent hover:text-white transition-colors"
                   aria-label="Behance"
                 >

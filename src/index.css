@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 @tailwind base;
@@ -7,83 +6,120 @@
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 0 0% 10%;
+    /* Light Theme - Pastel Colors */
+    --background: 36 30% 94%;
+    /* #F5F2EB - soft beige */
+    --foreground: 145 30% 10%;
+    /* dark text for contrast */
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 10%;
+    --card-foreground: 145 30% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
+    --popover-foreground: 145 30% 10%;
 
-    --primary: 210 100% 50%;
+    --primary: 145 30% 60%;
+    /* #8FCCA1 - mint green */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 10%;
+    --secondary: 120 20% 92%;
+    /* #E0EFE3 - light mint */
+    --secondary-foreground: 145 30% 20%;
 
-    --muted: 0 0% 92%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 36 20% 92%;
+    /* softer beige */
+    --muted-foreground: 145 10% 40%;
 
-    --accent: 210 100% 50%;
+    --accent: 145 30% 60%;
+    /* #8FCCA1 - mint green */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 210 100% 50%;
+    --border: 145 15% 85%;
+    --input: 145 15% 85%;
+    --ring: 145 30% 60%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 0 0% 40%;
-    --sidebar-primary: 0 0% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 0 0% 95%;
-    --sidebar-accent-foreground: 0 0% 10%;
-    --sidebar-border: 0 0% 90%;
-    --sidebar-ring: 210 100% 50%;
+    /* Custom architect colors */
+    --architect-accent: 145 30% 60%;
+    /* #8FCCA1 - mint green */
+    --architect-wood: 36 30% 70%;
+    /* #D6C8AB - soft wood */
+    --architect-light: 36 30% 94%;
+    /* #F5F2EB - soft beige background */
+    --architect-dark: 145 30% 10%;
+    /* Dark green for text */
+
+    /* Sidebar colors */
+    --sidebar-background: 36 30% 94%;
+    --sidebar-foreground: 145 30% 40%;
+    --sidebar-primary: 145 30% 10%;
+    --sidebar-primary-foreground: 36 30% 94%;
+    --sidebar-accent: 145 15% 90%;
+    --sidebar-accent-foreground: 145 30% 20%;
+    --sidebar-border: 145 15% 85%;
+    --sidebar-ring: 145 30% 60%;
   }
 
   .dark {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 98%;
+    /* Dark Theme - Using the specified colors */
+    --background: 145 33% 9%;
+    /* #0E1C12 - dark green */
+    --foreground: 15 4% 81%;
+    /* #D1CECC - light gray */
 
-    --card: 0 0% 6%;
-    --card-foreground: 0 0% 98%;
+    --card: 145 33% 12%;
+    /* slightly lighter than background */
+    --card-foreground: 15 4% 87%;
+    /* slightly lighter than foreground */
 
-    --popover: 0 0% 6%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 145 33% 12%;
+    --popover-foreground: 15 4% 87%;
 
-    --primary: 210 100% 50%;
+    --primary: 145 33% 50%;
+    /* #45A568 - medium green */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 145 15% 18%;
+    /* darker than background but still green */
+    --secondary-foreground: 15 4% 81%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 145 10% 20%;
+    --muted-foreground: 15 4% 65%;
 
-    --accent: 210 100% 50%;
+    --accent: 145 33% 50%;
+    /* #45A568 - medium green */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 15 4% 87%;
 
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 210 100% 50%;
-    
-    --sidebar-background: 0 0% 6%;
-    --sidebar-foreground: 0 0% 85%;
-    --sidebar-primary: 210 100% 50%;
+    --border: 145 15% 25%;
+    --input: 145 15% 25%;
+    --ring: 145 33% 50%;
+
+    /* Custom architect colors */
+    --architect-accent: 145 33% 50%;
+    /* #45A568 - medium green */
+    --architect-wood: 30 15% 30%;
+    /* darker wood tone */
+    --architect-light: 15 4% 81%;
+    /* #D1CECC - light gray */
+    --architect-dark: 145 33% 9%;
+    /* #0E1C12 - dark green */
+
+    /* Sidebar colors */
+    --sidebar-background: 145 33% 12%;
+    --sidebar-foreground: 15 4% 85%;
+    --sidebar-primary: 145 33% 50%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 10%;
-    --sidebar-accent-foreground: 0 0% 85%;
-    --sidebar-border: 0 0% 15%;
-    --sidebar-ring: 210 100% 50%;
+    --sidebar-accent: 145 20% 18%;
+    --sidebar-accent-foreground: 15 4% 85%;
+    --sidebar-border: 145 15% 25%;
+    --sidebar-ring: 145 33% 50%;
   }
 }
 
@@ -96,7 +132,12 @@
     @apply bg-background text-foreground font-sans antialiased scroll-smooth;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-display font-medium tracking-tight;
   }
 
@@ -121,27 +162,27 @@
   .hero-gradient {
     @apply bg-gradient-to-b from-architect-light to-white dark:from-architect-dark dark:to-black;
   }
-  
+
   .text-balance {
     text-wrap: balance;
   }
-  
+
   .glass-panel {
     @apply bg-white/80 dark:bg-black/80 backdrop-blur-md rounded-lg border border-white/20 dark:border-black/20;
   }
-  
+
   .section-padding {
     @apply py-12 md:py-16 lg:py-24;
   }
-  
+
   .button-primary {
-    @apply px-4 sm:px-6 py-2 sm:py-3 bg-architect-accent text-white rounded-md transition-all duration-300 hover:bg-blue-600 hover:shadow-lg;
+    @apply px-4 sm:px-6 py-2 sm:py-3 bg-architect-accent text-white rounded-md transition-all duration-300 hover:bg-primary hover:shadow-lg;
   }
-  
+
   .button-secondary {
     @apply px-4 sm:px-6 py-2 sm:py-3 bg-transparent border border-black dark:border-white rounded-md transition-all duration-300 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black;
   }
-  
+
   .input-field {
     @apply w-full px-4 py-3 bg-white dark:bg-architect-dark border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-architect-accent;
   }
@@ -149,114 +190,66 @@
   .card-hover {
     @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
   }
-  
+
   .navbar-item {
     @apply relative px-2 md:px-3 py-2 text-foreground hover:text-architect-accent transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-architect-accent after:scale-x-0 after:origin-center after:transition-transform hover:after:scale-x-100;
   }
-  
+
   .text-gradient {
-    @apply bg-gradient-to-r from-architect-accent to-blue-700 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-architect-accent to-primary bg-clip-text text-transparent;
   }
 
-  /* Mobile specific styles */
-  @media (max-width: 640px) {
-    .container {
-      @apply px-4;
-    }
-    
-    .mobile-full {
-      @apply w-full;
-    }
-    
-    .mobile-stack {
-      @apply flex-col;
-    }
-    
-    .mobile-center {
-      @apply text-center;
-    }
-    
-    .mobile-touch-scroll {
-      @apply overflow-x-auto pb-4 scrollbar-none -mx-4 px-4;
-    }
-    
-    .scrollbar-none::-webkit-scrollbar {
-      display: none;
-    }
-    
-    .scrollbar-none {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
+  /* Add this to your src/index.css file in the @layer components section 
+   to enhance the glass panel effect with the new colors */
+
+  .glass-panel {
+    @apply bg-white/70 dark:bg-architect-dark/70 backdrop-blur-md rounded-lg border border-white/20 dark:border-architect-light/10 shadow-sm hover:shadow-md transition-shadow duration-300;
   }
-}
 
-/* Transições de página */
-.page-enter {
-  opacity: 0;
-  transform: translate3d(0, 20px, 0);
-}
+  /* You can also add these specific glass panel variants */
 
-.page-enter-active {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-  transition: opacity 400ms, transform 400ms;
-}
-
-.page-exit {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-}
-
-.page-exit-active {
-  opacity: 0;
-  transform: translate3d(0, -20px, 0);
-  transition: opacity 300ms, transform 300ms;
-}
-
-/* Scroll personalizado */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-gray-100 dark:bg-gray-900;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-gray-300 dark:bg-gray-700 rounded-full;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-400 dark:bg-gray-600;
-}
-
-/* Mobile app-like styles for small screens */
-@media (max-width: 640px) {
-  body {
-    @apply overscroll-none;
+  .glass-panel-accent {
+    @apply bg-architect-accent/10 backdrop-blur-md rounded-lg border border-architect-accent/20 shadow-sm;
   }
-  
-  /* Bottom navigation bar for mobile */
-  .mobile-nav-bar {
-    @apply fixed bottom-0 left-0 right-0 bg-white dark:bg-black border-t border-gray-200 dark:border-gray-800 py-2 px-4 flex justify-around items-center z-50;
+
+  .glass-panel-wood {
+    @apply bg-architect-wood/10 backdrop-blur-md rounded-lg border border-architect-wood/20 shadow-sm;
   }
-  
-  .mobile-nav-item {
-    @apply flex flex-col items-center justify-center text-xs font-medium;
+
+  /* Enhanced button styles with new color theme */
+
+  .button-primary {
+    @apply px-4 sm:px-6 py-2 sm:py-3 bg-architect-accent text-white rounded-md transition-all duration-300 hover:bg-primary/90 hover:shadow-lg focus:ring-2 focus:ring-architect-accent focus:ring-offset-2;
   }
-  
-  .mobile-nav-icon {
-    @apply mb-1 text-gray-600 dark:text-gray-400;
+
+  .button-secondary {
+    @apply px-4 sm:px-6 py-2 sm:py-3 bg-transparent border border-architect-dark dark:border-architect-light rounded-md transition-all duration-300 hover:bg-architect-dark hover:text-white dark:hover:bg-architect-light dark:hover:text-architect-dark focus:ring-2 focus:ring-architect-dark dark:focus:ring-architect-light focus:ring-offset-2;
   }
-  
-  /* Pull to refresh indicator */
-  .pull-indicator {
-    @apply h-16 flex items-center justify-center text-gray-400;
+
+  /* Add these classes to your src/index.css file in the @layer components section */
+
+  .section-primary {
+    @apply bg-white dark:bg-architect-dark;
   }
-  
-  /* Status bar */
-  .mobile-status-bar {
-    @apply fixed top-0 left-0 right-0 h-6 bg-white/70 dark:bg-black/70 backdrop-blur-md z-50;
+
+  .section-secondary {
+    @apply bg-architect-light/50 dark:bg-black/30;
+  }
+
+  .section-accent {
+    @apply bg-architect-accent/5 dark:bg-architect-accent/10;
+  }
+
+  .section-wood {
+    @apply bg-architect-wood/10 dark:bg-architect-wood/15;
+  }
+
+  /* Add subtle pattern overlays for texture */
+  .pattern-grid {
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3Ccircle cx='13' cy='13' r='1'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .pattern-diagonal {
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
   }
 }

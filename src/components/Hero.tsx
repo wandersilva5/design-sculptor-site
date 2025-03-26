@@ -40,16 +40,16 @@ const Hero = () => {
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!overlayRef.current) return;
-      
+
       const { clientX, clientY } = e;
       const { innerWidth, innerHeight } = window;
-      
+
       const moveX = (clientX / innerWidth - 0.5) * 20;
       const moveY = (clientY / innerHeight - 0.5) * 20;
-      
+
       overlayRef.current.style.transform = `translateX(${moveX}px) translateY(${moveY}px)`;
     };
-    
+
     window.addEventListener('mousemove', handleMouseMove);
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
@@ -88,54 +88,56 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-gray-10 to-white dark:from-gray-900 dark:to-black z-0"></div>
-      
-      {/* Image Background - No blur now */}
-      <div 
+
+      {/* Image Background with color tint */}
+      <div
         ref={overlayRef}
-        className="absolute inset-0 z-0 opacity-50 transition-transform duration-200"
-        style={{ 
-          backgroundImage: `url(${slides[currentSlide].image})`, 
+        className="absolute inset-0 z-0 opacity-60 transition-transform duration-200"
+        style={{
+          backgroundImage: `url(${slides[currentSlide].image})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       ></div>
-      
+      {/* Color overlay to enhance branding */}
+      <div className="absolute inset-0 z-0 bg-architect-accent/10 dark:bg-architect-dark/30 mix-blend-multiply"></div>
+
       {/* Slider Controls */}
-      <button 
+      <button
         onClick={prevSlide}
         className="absolute left-4 z-20 bg-white/20 backdrop-blur-md text-foreground p-2 rounded-full hover:bg-white/30 transition-colors duration-300 hidden sm:block"
         aria-label="Previous slide"
       >
         <ChevronLeft size={24} />
       </button>
-      
-      <button 
+
+      <button
         onClick={nextSlide}
         className="absolute right-4 z-20 bg-white/20 backdrop-blur-md text-foreground p-2 rounded-full hover:bg-white/30 transition-colors duration-300 hidden sm:block"
         aria-label="Next slide"
       >
         <ChevronRight size={24} />
       </button>
-      
+
       {/* Content */}
       <div className="container mx-auto px-4 z-10">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-block mb-4 px-4 py-1 rounded-full bg-architect-accent/10 text-architect-accent animate-fade-in">
             Design Arquitetônico 3D
           </div>
-          
+
           {/* Title with background */}
-          <h1 
+          <h1
             className="mb-6 font-display animate-fade-in-left px-4 py-2 bg-black/40 backdrop-blur-sm rounded-md inline-block"
             style={{ animationDelay: '200ms' }}
             dangerouslySetInnerHTML={{ __html: slides[currentSlide].title }}
           />
-          
+
           {/* Description with background */}
           <p className="text-lg md:text-xl text-white mb-8 max-w-2xl mx-auto animate-fade-in-right text-balance bg-black/40 backdrop-blur-sm p-4 rounded-md" style={{ animationDelay: '400ms' }}>
             {slides[currentSlide].description}
           </p>
-          
+
           <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in" style={{ animationDelay: '600ms' }}>
             <Link to="/projects">
               <Button className="button-primary w-full sm:w-auto">Ver Projetos</Button>
@@ -144,25 +146,24 @@ const Hero = () => {
               <Button variant="outline" className="button-secondary w-full sm:w-auto">Entre em Contato</Button>
             </a>
           </div>
-          
+
           {/* Slide Indicator */}
           <div className="flex justify-center mt-8 gap-2">
             {slides.map((_, index) => (
-              <button 
+              <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  currentSlide === index ? 'w-8 bg-architect-accent' : 'w-2 bg-gray-300 dark:bg-gray-700'
-                }`}
+                className={`h-2 rounded-full transition-all duration-300 ${currentSlide === index ? 'w-8 bg-architect-accent' : 'w-2 bg-gray-300 dark:bg-gray-700'
+                  }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
           </div>
         </div>
       </div>
-      
+
       {/* Scroll Indicator */}
-      <div 
+      <div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer animate-bounce"
         onClick={scrollToProjects}
       >
