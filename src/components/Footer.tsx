@@ -17,7 +17,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
             <Link to="/" className="text-xl md:text-2xl font-display font-semibold text-foreground mb-4 block">
-              Estúdio<span className="text-architect-accent">3D</span>
+              Deivisson<span className="text-architect-accent">3D</span>
             </Link>
             <p className="text-muted-foreground mb-6">
               Transformando visões arquitetônicas em renderizações 3D fotorrealistas para arquitetos, construtoras e incorporadoras.
@@ -85,17 +85,17 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/projects" className="text-muted-foreground hover:text-architect-accent transition-colors">
+                <Link to="/#projects" className="text-muted-foreground hover:text-architect-accent transition-colors">
                   Projetos
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-muted-foreground hover:text-architect-accent transition-colors">
+                <Link to="/#about" className="text-muted-foreground hover:text-architect-accent transition-colors">
                   Sobre
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-muted-foreground hover:text-architect-accent transition-colors">
+                <Link to="/#contact" className="text-muted-foreground hover:text-architect-accent transition-colors">
                   Contato
                 </Link>
               </li>
@@ -107,22 +107,22 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a href="#" className="text-muted-foreground hover:text-architect-accent transition-colors">
-                  Modelagem 3D
+                  Ilustração 3D
                 </a>
               </li>
               <li>
                 <a href="#" className="text-muted-foreground hover:text-architect-accent transition-colors">
-                  Renderização Fotorrealista
+                  Planta Humanizada
                 </a>
               </li>
               <li>
                 <a href="#" className="text-muted-foreground hover:text-architect-accent transition-colors">
-                  Animações Walkthrough
+                  Tour Virtual 3D
                 </a>
               </li>
               <li>
                 <a href="#" className="text-muted-foreground hover:text-architect-accent transition-colors">
-                  Consultoria de Design
+                  Animação 3D
                 </a>
               </li>
             </ul>
@@ -137,7 +137,7 @@ const Footer = () => {
                   <circle cx="12" cy="10" r="3"></circle>
                 </svg>
                 <span className="text-muted-foreground">
-                  Av. Paulista, 1000<br />São Paulo, SP
+                  Rio de Janeiro /Brasil
                 </span>
               </li>
               <li className="flex items-center">

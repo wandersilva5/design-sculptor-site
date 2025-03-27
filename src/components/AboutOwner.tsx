@@ -14,9 +14,9 @@ const AboutOwner = ({ className }: AboutOwnerProps) => {
           <div className="inline-block mb-4 px-4 py-1 rounded-full bg-architect-accent/10 text-architect-accent">
             Quem Sou
           </div>
-          <h2 className="text-3xl md:text-4xl font-display mb-6">Conheça o Fundador</h2>
+          <h2 className="text-3xl md:text-4xl font-display mb-6">Me Conheça</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Profissional com mais de 15 anos de experiência em renderização 3D arquitetônica e design de interiores.
+            Profissional com 5 anos de experiência em renderização 3D arquitetônica e design de interiores.
           </p>
         </div>
         
@@ -51,7 +51,7 @@ const AboutOwner = ({ className }: AboutOwnerProps) => {
             transition={{ duration: 0.7, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-display mb-6">Carlos Mendes</h3>
+            <h3 className="text-2xl font-display mb-6">Deivisson Gonçalves</h3>
             <h4 className="text-lg text-architect-accent mb-4">Arquiteto & Especialista em Visualização 3D</h4>
             
             <div className="space-y-4 text-muted-foreground mb-8">

@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { Menu, X, Home, Grid, User, Mail, Sun, Moon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -39,7 +38,28 @@ const Navbar = () => {
     document.documentElement.classList.toggle('dark', newDarkMode);
   };
 
-  const isActive = (path: string) => location.pathname === path;
+  const scrollToSection = (sectionId: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      // If we're on another page, navigate to home first
+      if (location.pathname !== '/') {
+        window.location.href = `/#${sectionId}`;
+        return;
+      }
+      
+      // Close the mobile menu if it's open
+      if (isOpen) setIsOpen(false);
+      
+      const yOffset = -80; // Account for navbar height
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
     <nav 
@@ -50,27 +70,47 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          <Link 
-            to="/" 
-            className="text-xl md:text-2xl font-display font-semibold text-foreground z-10"
-          >
-            Deivisson<span className="text-architect-accent">3D</span>
-          </Link>
+          <div className="flex items-center">
+            {/* Logo and Brand Name */}
+            <a href="/" className="flex items-center">
+              <div className="w-10 h-10 mr-3 rounded-full bg-architect-accent overflow-hidden flex items-center justify-center">
+                <img 
+                  src="/LOGO_BRANCO.png" 
+                  alt="Estúdio3D Logo" 
+                  className="w-8 h-8 object-contain"
+                  onError={(e) => {
+                    // Fallback if image doesn't exist
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                  }}
+                />
+              </div>
+              <span className="text-xl md:text-2xl font-display font-semibold text-foreground z-10">
+                Estúdio<span className="text-architect-accent">3D</span>
+              </span>
+            </a>
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
-            <Link to="/" className={cn('navbar-item', isActive('/') && 'text-architect-accent')}>
+            <a href="#home" className="navbar-item" onClick={(e) => scrollToSection('home', e)}>
               Início
-            </Link>
-            <Link to="/projects" className={cn('navbar-item', isActive('/projects') && 'text-architect-accent')}>
+            </a>
+            <a href="#projects" className="navbar-item" onClick={(e) => scrollToSection('projects', e)}>
               Projetos
-            </Link>
-            <Link to="/about" className={cn('navbar-item', isActive('/about') && 'text-architect-accent')}>
+            </a>
+            <a href="#about" className="navbar-item" onClick={(e) => scrollToSection('about', e)}>
               Sobre
-            </Link>
-            <Link to="/contact" className={cn('navbar-item', isActive('/contact') && 'text-architect-accent')}>
+            </a>
+            <a href="#owner" className="navbar-item" onClick={(e) => scrollToSection('owner', e)}>
+              Quem Sou
+            </a>
+            <a href="#process" className="navbar-item" onClick={(e) => scrollToSection('process', e)}>
+              Processo
+            </a>
+            <a href="#contact" className="navbar-item" onClick={(e) => scrollToSection('contact', e)}>
               Contato
-            </Link>
+            </a>
             <button 
               onClick={toggleDarkMode} 
               className="ml-2 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
@@ -97,38 +137,54 @@ const Navbar = () => {
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <Link 
-          to="/" 
+        <a 
+          href="#home" 
           className="flex items-center text-xl font-medium" 
-          onClick={toggleMenu}
+          onClick={(e) => scrollToSection('home', e)}
         >
           <Home className="mr-2" size={20} />
           Início
-        </Link>
-        <Link 
-          to="/projects" 
+        </a>
+        <a 
+          href="#projects" 
           className="flex items-center text-xl font-medium" 
-          onClick={toggleMenu}
+          onClick={(e) => scrollToSection('projects', e)}
         >
           <Grid className="mr-2" size={20} />
           Projetos
-        </Link>
-        <Link 
-          to="/about" 
+        </a>
+        <a 
+          href="#about" 
           className="flex items-center text-xl font-medium" 
-          onClick={toggleMenu}
+          onClick={(e) => scrollToSection('about', e)}
         >
           <User className="mr-2" size={20} />
           Sobre
-        </Link>
-        <Link 
-          to="/contact" 
+        </a>
+        <a 
+          href="#owner" 
           className="flex items-center text-xl font-medium" 
-          onClick={toggleMenu}
+          onClick={(e) => scrollToSection('owner', e)}
+        >
+          <User className="mr-2" size={20} />
+          Quem Sou
+        </a>
+        <a 
+          href="#process" 
+          className="flex items-center text-xl font-medium" 
+          onClick={(e) => scrollToSection('process', e)}
+        >
+          <Grid className="mr-2" size={20} />
+          Processo
+        </a>
+        <a 
+          href="#contact" 
+          className="flex items-center text-xl font-medium" 
+          onClick={(e) => scrollToSection('contact', e)}
         >
           <Mail className="mr-2" size={20} />
           Contato
-        </Link>
+        </a>
         <button 
           onClick={toggleDarkMode} 
           className="flex items-center text-xl font-medium"

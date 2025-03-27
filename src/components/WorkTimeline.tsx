@@ -53,9 +53,9 @@ const WorkTimeline = () => {
           <div className="inline-block mb-4 px-4 py-1 rounded-full bg-architect-accent/10 text-architect-accent">
             Nosso Processo
           </div>
-          <h2 className="text-3xl md:text-4xl font-display mb-6">Como Trabalhamos</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Nossa metodologia estruturada garante resultados excepcionais e uma experiência tranquila do início ao fim do projeto.
+          <h2 className="text-3xl md:text-4xl font-display mb-6">Como Trabalho</h2>
+          <p className="text-muted-foreground max-w-3xl mx-auto">
+            Gosto de usar a metodologia estruturada, pois garante resultados excepcionais e uma experiência tranquila do início ao fim do projeto.
           </p>
         </div>
 

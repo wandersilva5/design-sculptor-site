@@ -60,7 +60,7 @@ const Hero = () => {
     // Auto-rotate slides
     intervalRef.current = window.setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 6000);
+    }, 12000);
 
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
@@ -92,7 +92,7 @@ const Hero = () => {
       {/* Image Background with color tint */}
       <div
         ref={overlayRef}
-        className="absolute inset-0 z-0 opacity-60 transition-transform duration-200"
+        className="absolute inset-0 z-0 opacity-70 transition-transform duration-600"
         style={{
           backgroundImage: `url(${slides[currentSlide].image})`,
           backgroundSize: 'cover',
@@ -122,23 +122,23 @@ const Hero = () => {
       {/* Content */}
       <div className="container mx-auto px-4 z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-block mb-4 px-4 py-1 rounded-full bg-architect-accent/10 text-architect-accent animate-fade-in">
+          <div className="inline-block mb-4 px-4 py-1 rounded-full bg-architect-accent/30 text-black/70 animate-fade-in">
             Design Arquitetônico 3D
           </div>
 
           {/* Title with background */}
           <h1
-            className="mb-6 font-display animate-fade-in-left px-4 py-2 bg-black/40 backdrop-blur-sm rounded-md inline-block"
-            style={{ animationDelay: '200ms' }}
+            className="mb-6 font-display animate-fade-in-left px-4 py-2 bg-black/20 backdrop-blur-sm rounded-md inline-block"
+            style={{ animationDelay: '1200ms' }}
             dangerouslySetInnerHTML={{ __html: slides[currentSlide].title }}
           />
 
           {/* Description with background */}
-          <p className="text-lg md:text-xl text-white mb-8 max-w-2xl mx-auto animate-fade-in-right text-balance bg-black/40 backdrop-blur-sm p-4 rounded-md" style={{ animationDelay: '400ms' }}>
+          <p className="text-lg md:text-xl text-white mb-8 max-w-2xl mx-auto animate-fade-in-right text-balance bg-black/20 backdrop-blur-sm p-4 rounded-md" style={{ animationDelay: '400ms' }}>
             {slides[currentSlide].description}
           </p>
 
-          <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in" style={{ animationDelay: '600ms' }}>
+          <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in" style={{ animationDelay: '1200ms' }}>
             <Link to="/projects">
               <Button className="button-primary w-full sm:w-auto">Ver Projetos</Button>
             </Link>

@@ -1,18 +1,19 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Image, Briefcase, Users, Trophy, Cpu } from 'lucide-react';
+import { House, Box, Users, Move3D
+  , Rotate3D } from 'lucide-react';
 import Model3D from './Model3D';
 
 const About = () => {
   const stats = [
     {
-      icon: <Image size={24} />,
+      icon: <House size={24} />,
       value: '250+',
       label: 'Projetos Concluídos'
     },
     {
-      icon: <Briefcase size={24} />,
+      icon: <Box size={24} />,
       value: '15+',
       label: 'Anos de Experiência'
     },
@@ -22,7 +23,7 @@ const About = () => {
       label: 'Clientes Satisfeitos'
     },
     {
-      icon: <Trophy size={24} />,
+      icon: <Move3D size={24} />,
       value: '18',
       label: 'Prêmios Conquistados'
     }
@@ -30,24 +31,24 @@ const About = () => {
 
   const services = [
     {
-      title: 'Modelagem 3D',
-      description: 'Criamos modelos tridimensionais detalhados a partir de plantas baixas ou esboços.',
-      icon: <Cpu size={24} />
+      title: 'Ilustração 3D',
+      description: 'Valorize o seu empreendimento com uma apresentação profissional e fiel ao projeto. Com as nossas imagens você irá otimizar o tempo e potencializar o processo de vendas',
+      icon: <Box size={24} />
     },
     {
-      title: 'Renderização Fotorrealista',
-      description: 'Transformamos modelos 3D em imagens com qualidade fotográfica.',
-      icon: <Image size={24} />
+      title: 'Planta Humanizada',
+      description: 'Elas são essenciais para transmitir a funcionalidade e o potencial dos ambientes aos futuros compradores, permitindo que eles compreendam o fluxo dos espaços e visualizem como seria viver ou trabalhar nesse local.',
+      icon: <House size={24} />
     },
     {
-      title: 'Animações Walkthrough',
-      description: 'Criamos passeios virtuais internos e externos para proporcionar uma experiência imersiva.',
-      icon: <Users size={24} />
+      title: 'Animações 3D',
+      description: 'As animações 3D desempenham um papel crucial no lançamento imobiliário, oferecendo uma representação visual dinâmica e envolvente do empreendimento',
+      icon: <Move3D size={24} />
     },
     {
-      title: 'Consultoria de Design',
-      description: 'Oferecemos sugestões de materiais, texturas e elementos de design para aprimorar projetos.',
-      icon: <Briefcase size={24} />
+      title: 'Tour Virtual 360º',
+      description: 'Um tour virtual 360 permite que os interessados realizem uma visita virtual completa aos espaços internos e externos do empreendimento, rica em detalhes e fiel ao projeto.',
+      icon: <Rotate3D size={24} />
     }
   ];
 
@@ -77,11 +78,11 @@ const About = () => {
             viewport={{ once: true }}
           >
             <div className="inline-block mb-4 px-4 py-1 rounded-full bg-architect-accent/10 text-architect-accent">
-              Nossa Expertise
+              Expertise
             </div>
-            <h2 className="text-3xl md:text-4xl font-display mb-6">Transformamos conceitos em visualizações realistas</h2>
+            <h2 className="text-3xl md:text-4xl font-display mb-6">Transformo conceitos em visualizações realistas</h2>
             <p className="text-muted-foreground mb-8">
-              Somos especialistas em transformar ideias e projetos arquitetônicos em representações visuais impressionantes.
+              Sou especialistas em transformar ideias e projetos arquitetônicos em representações visuais impressionantes.
               Utilizando as mais avançadas ferramentas de modelagem 3D, criamos renderizações que permitem visualizar
               cada detalhe antes mesmo do início da construção.
             </p>
@@ -103,11 +104,11 @@ const About = () => {
         <div className="mt-24">
           <div className="text-center mb-16">
             <div className="inline-block mb-4 px-4 py-1 rounded-full bg-architect-accent/10 text-architect-accent">
-              Nossos Serviços
+              Meus Serviços
             </div>
-            <h2 className="text-3xl md:text-4xl font-display mb-6">O que oferecemos</h2>
+            <h2 className="text-3xl md:text-4xl font-display mb-6">O que ofereço?</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Fornecemos uma gama completa de serviços de visualização 3D para atender às necessidades de arquitetos,
+              Forneç uma gama completa de serviços de visualização 3D para atender às necessidades de arquitetos,
               construtoras e incorporadoras.
             </p>
           </div>

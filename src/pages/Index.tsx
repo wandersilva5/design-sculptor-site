@@ -1,5 +1,3 @@
-// In src/pages/Index.tsx, update the component to include alternating section backgrounds
-
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -8,6 +6,7 @@ import About from '@/components/About';
 import AboutOwner from '@/components/AboutOwner';
 import WorkTimeline from '@/components/WorkTimeline';
 import PartnersLogos from '@/components/PartnersLogos';
+import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { motion, useAnimation } from 'framer-motion';
@@ -29,12 +28,14 @@ const Index = () => {
   return (
     <div className="relative">
       <Navbar />
-
-      {/* Hero section - keep default background */}
-      <Hero />
-
-      {/* Projects section - accent background */}
-      <section className="section-accent pattern-grid">
+      
+      {/* Hero section - with ID for navigation */}
+      <section id="home" className="section-primary">
+        <Hero />
+      </section>
+      
+      {/* Projects section - with ID for navigation */}
+      <section id="projects" className="section-accent pattern-grid">
         <motion.div
           ref={ref}
           animate={controls}
@@ -48,28 +49,37 @@ const Index = () => {
           <ProjectsGrid limit={6} />
         </motion.div>
       </section>
-
-      {/* About section - primary background (white/dark) */}
-      <section className="section-primary">
+      
+      {/* About section - with ID for navigation */}
+      <section id="about" className="section-primary">
         <About />
       </section>
-
-      {/* NEW: About Owner section - secondary background */}
-      <section className="section-secondary pattern-diagonal">
+      
+      {/* About Owner section - with ID for navigation */}
+      <section id="owner" className="section-secondary pattern-diagonal">
         <AboutOwner />
       </section>
-
-      {/* Timeline section - wooden background */}
-      <section className="section-wood pattern-diagonal">
+      
+      {/* Already has ID="process" in the WorkTimeline component */}
+      <section className="section-wood">
         <WorkTimeline />
       </section>
-
-      {/* Partners section - secondary background */}
-      <section className="section-secondary">
+      
+      {/* Partners section */}
+      <section className="section-accent">
         <PartnersLogos />
       </section>
 
-      <Footer />
+      {/* Contact section (already has id="contact" internally) */}
+      <section className="section-primary">
+        <Contact />
+      </section>
+      
+      {/* Add ID for contact - assuming Footer contains contact info */}
+      <section id="contact">
+        <Footer />
+      </section>
+      
       <WhatsAppButton />
     </div>
   );
